@@ -1,6 +1,6 @@
 {
-  "name": "desktop",
-  "productName": "desktop",
+  "name": "boilerplate",
+  "productName": "boilerplate",
   "version": "1.0.0",
   "description": "My Electron application description",
   "main": "src/index.js",
@@ -21,7 +21,8 @@
           "squirrel"
         ],
         "darwin": [
-          "zip"
+          "zip",
+          "dmg"
         ],
         "linux": [
           "deb",
@@ -32,7 +33,7 @@
         "packageManager": "yarn"
       },
       "electronWinstallerConfig": {
-        "name": "desktop"
+        "name": "boilerplate"
       },
       "electronInstallerDebian": {},
       "electronInstallerRedhat": {},
@@ -42,7 +43,7 @@
       },
       "windowsStoreConfig": {
         "packageName": "",
-        "name": "desktop"
+        "name": "boilerplate"
       }
     }
   },

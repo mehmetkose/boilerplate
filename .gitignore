@@ -1,7 +1,7 @@
 
-node_modules
+desktop/src/app/
+
 .DS_Store
-*.log
 dist
 build
 
