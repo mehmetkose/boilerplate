@@ -2,6 +2,7 @@ import { h, Component } from 'preact'
 import { Router, route } from 'preact-router'
 import GAnalytics from 'ganalytics'
 import Index from './pages/index'
+import Settings from './pages/settings'
 
 import './index.scss'
 
@@ -29,6 +30,7 @@ export default class App extends Component {
 	render() {
 		return (<Router onChange={ this.handleRoute }>
 			<Index default path="/" {...this.state} />
+			<Settings path="/settings" {...this.state} />
 		</Router>)
   }
 }
