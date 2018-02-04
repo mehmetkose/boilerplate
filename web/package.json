@@ -14,9 +14,7 @@
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
     "serve": "preact build && preact serve",
     "build": "preact build --no-prerender --template ./src/index.html",
-    "dev": "preact watch --template ./src/index.html --https --port 8888",
-    "deploy": "yarn build && firebase deploy --only hosting",
-    "web:prepare": "mkdir -p ./desktop/dist/ && rm -rf ./desktop/dist/* && npm run build && cp ./build/bundle.*.js ./desktop/dist/bundle.js && cp ./build/polyfills.*.js ./desktop/dist/polyfills.js && cp ./build/style.*.css ./desktop/dist/style.css"
+    "dev": "preact watch --template ./src/index.html --https --port 8888"
   },
   "eslintConfig": {
     "extends": "eslint-config-synacor"

@@ -1,5 +1,6 @@
 
 desktop/src/app/
+desktop/src/icons/
 
 .DS_Store
 dist

@@ -20,7 +20,7 @@ const createWindow = () => {
     //titleBarStyle: 'hidden-inset', // macOS only
     titleBarStyle: 'hidden', // macOS only
     frame: process.platform === 'darwin',
-    icon: path.join(__dirname, "assets/icons/icon")
+    icon: path.join(__dirname, 'assets/icons/png/64x64.png')
   });
 
   // and load the index.html of the app.
