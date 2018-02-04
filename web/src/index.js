@@ -20,6 +20,8 @@ export default class App extends Component {
 
 	componentDidMount() {
 		window.ga = new GAnalytics('UA-XXXXXXX-XX')
+
+		console.log(window && window.process && window.process.type)
 	}
 
 	handleRoute = e => {

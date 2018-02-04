@@ -20,8 +20,8 @@ export default config => {
 
     config.plugins.push(
       new FaviconsWebpackPlugin({
-    		logo: `${__dirname}/src/assets/icon.png`,
-    		prefix: `${__dirname}/src/assets/icons/`,
+        logo: path.join(root, 'assets','icon.png'),
+    		prefix: `assets/icons/`,
         emitStats: false,
     		inject: true,
     		icons: {
