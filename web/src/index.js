@@ -5,6 +5,9 @@ import Index from './pages/index'
 import Settings from './pages/settings'
 
 import './index.scss'
+import store from './store';
+
+const appStore = store.App({ name: 'Boilerplate' });
 
 export default class App extends Component {
 
@@ -20,8 +23,7 @@ export default class App extends Component {
 
 	componentDidMount() {
 		window.ga = new GAnalytics('UA-XXXXXXX-XX')
-
-		console.log(window && window.process && window.process.type)
+		console.log(appStore.fullname)
 	}
 
 	handleRoute = e => {

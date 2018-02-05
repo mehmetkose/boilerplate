@@ -20,6 +20,7 @@ build_web: clean;
 	@echo "Building Web App ${PROJECT}....."; \
 	cd ${PWD}/web; \
 	yarn build; \
+	cp ${PWD}/web/build/assets/icons/favicon.ico ${PWD}/web/build/favicon.ico; \
   cd ..; \
 
 prepare_desktop: build_web;
