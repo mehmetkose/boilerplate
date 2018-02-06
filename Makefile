@@ -15,6 +15,12 @@ clean: ;
 install: ;
 	@echo "Installing dependencies..."; \
 	npm install -g electron-icon-maker; \
+	npm install -g ios-deploy; \
+	# build for linux
+	brew install fakeroot; \
+	brew install dpkg; \
+	brew install rpm; \
+
 
 build_web: clean;
 	@echo "Building Web App ${PROJECT}....."; \
@@ -36,6 +42,7 @@ prepare_desktop: build_web;
 build_desktop: prepare_desktop;
 	@echo "Building the Desktop App ${PROJECT}....."; \
 	cd ${PWD}/desktop; \
+	electron-forge make --platform=linux; \
 	electron-forge make --platform=darwin; \
 	cd ..; \
 

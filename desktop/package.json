@@ -21,12 +21,10 @@
           "squirrel"
         ],
         "darwin": [
-          "zip",
-          "dmg"
+          "zip"
         ],
         "linux": [
-          "deb",
-          "rpm"
+          "deb"
         ]
       },
       "electronPackagerConfig": {
