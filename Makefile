@@ -27,7 +27,8 @@ build_web: clean;
 	cd ${PWD}/web; \
 	yarn build; \
 	cp ${PWD}/web/build/assets/icons/favicon.ico ${PWD}/web/build/favicon.ico; \
-  cd ..; \
+	cp ${PWD}/web/build/assets/icons/favicon.ico ${PWD}/web/src/assets/favicon.ico; \
+  cd ${PWD}; \
 
 prepare_desktop: build_web;
 	@echo "Preparing for the Desktop App ${PROJECT}....."; \
@@ -44,6 +45,6 @@ build_desktop: prepare_desktop;
 	cd ${PWD}/desktop; \
 	electron-forge make --platform=linux; \
 	electron-forge make --platform=darwin; \
-	cd ..; \
+	cd ${PWD}; \
 
 .PHONY: clean
