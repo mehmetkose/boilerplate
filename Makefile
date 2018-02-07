@@ -21,30 +21,34 @@ install: ;
 	brew install dpkg; \
 	brew install rpm; \
 
+list_emulator_devices: ;
+	cordova emulate ios --list; \
 
-build_web: clean;
+create_icons: clean;
+	mkdir -p ${PWD}/web/src/assets/icons/; \
+	electron-icon-maker --input=${PWD}/web/src/brand/icon.png --output=${PWD}/web/src/assets/; \
+
+build_web: create_icons;
 	@echo "Building Web App ${PROJECT}....."; \
 	cd ${PWD}/web; \
 	yarn build; \
 	cp ${PWD}/web/build/assets/icons/favicon.ico ${PWD}/web/build/favicon.ico; \
 	cp ${PWD}/web/build/assets/icons/favicon.ico ${PWD}/web/src/assets/favicon.ico; \
-  cd ${PWD}; \
 
 prepare_desktop: build_web;
 	@echo "Preparing for the Desktop App ${PROJECT}....."; \
-	cd ${PWD}; \
-  mkdir -p desktop/src/app/; \
-  cp web/build/bundle.*.js desktop/src/app/bundle.js; \
-	cp web/build/polyfills.*.js desktop/src/app/polyfills.js; \
-	cp web/build/sw.js desktop/src/app/sw.js; \
-	cp web/build/style.*.css desktop/src/app/style.css; \
-	electron-icon-maker --input=${PWD}/web/build/icon.png --output=${PWD}/desktop/src/; \
+	rm -rf ${PWD}/desktop/src/app/; \
+	mkdir -p ${PWD}/desktop/src/app/; \
+  cp ${PWD}/web/build/bundle.*.js ${PWD}/desktop/src/app/bundle.js; \
+	cp ${PWD}/web/build/polyfills.*.js ${PWD}/desktop/src/app/polyfills.js; \
+	cp ${PWD}/web/build/sw.js ${PWD}/desktop/src/app/sw.js; \
+	cp ${PWD}/web/build/style.*.css ${PWD}/desktop/src/app/style.css; \
 
 build_desktop: prepare_desktop;
 	@echo "Building the Desktop App ${PROJECT}....."; \
 	cd ${PWD}/desktop; \
-	electron-forge make --platform=linux; \
+	electron-icon-maker --input=${PWD}/web/src/brand/icon.png --output=${PWD}/desktop/src/app/; \
 	electron-forge make --platform=darwin; \
-	cd ${PWD}; \
+	#electron-forge make --platform=linux; \
 
 .PHONY: clean

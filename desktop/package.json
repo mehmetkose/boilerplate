@@ -29,7 +29,7 @@
       },
       "electronPackagerConfig": {
         "packageManager": "yarn",
-        "icon": "src/icons/mac/icon.icns"
+        "icon": "src/app/icons/mac/icon.icns"
       },
       "electronWinstallerConfig": {
         "name": "boilerplate"

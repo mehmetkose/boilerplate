@@ -17,10 +17,10 @@ const createWindow = () => {
     height: 720,
     webPreferences:{ devTools: false },
     frame: false,
+    //icon: path.join(__dirname, 'app/icons/png/512x512.png'),
     //titleBarStyle: 'hidden-inset', // macOS only
     titleBarStyle: 'hidden', // macOS only
-    frame: process.platform === 'darwin',
-    icon: path.join(__dirname, 'assets/icons/png/64x64.png')
+    frame: process.platform === 'darwin'
   });
 
   // and load the index.html of the app.

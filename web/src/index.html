@@ -8,6 +8,14 @@
 		<link rel="manifest" href="<%= htmlWebpackPlugin.files.publicPath %>assets/icons/manifest.json">
 		<meta name="robots" content="index" />
 
+		<!-- <script type="text/javascript">
+			if (document.location.origin.startsWith('http')) {
+				document.write("<base href='/' />");
+			} else {
+				document.write("<base href='./' />");
+			}
+		</script> -->
+
 		<% if (htmlWebpackPlugin.options.manifest.short_name) { %>
 			<meta name="application-name" content="<%= htmlWebpackPlugin.options.manifest.short_name %>">
 		<% } %>

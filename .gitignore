@@ -1,10 +1,11 @@
 
 desktop/src/app/
 desktop/src/icons/
-
+mobile/platforms/*/build/
 .DS_Store
 dist
 build
+icons
 
 # Logs
 logs

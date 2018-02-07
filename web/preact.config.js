@@ -20,7 +20,7 @@ export default config => {
 
     config.plugins.push(
       new FaviconsWebpackPlugin({
-        logo: path.join(root, 'assets','icon.png'),
+        logo: path.join(root, 'assets', 'icons', 'png','512x512.png'),
     		prefix: `assets/icons/`,
         emitStats: false,
     		inject: true,
@@ -28,8 +28,8 @@ export default config => {
           android: true,
     			appleIcon: true,
           favicons: true,
+          twitter: true,
           firefox: false,
-          twitter: false,
           windows: false,
           appleStartup: false,
     			coast: false,
@@ -37,5 +37,6 @@ export default config => {
           yandex: false
         }
     	})
-    );
+    )
+
 }
