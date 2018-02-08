@@ -14,8 +14,8 @@ const createWindow = () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 960,
-    height: 720,
-    webPreferences:{ devTools: false },
+    height: 620,
+    webPreferences:{ devTools: true },
     frame: false,
     //icon: path.join(__dirname, 'app/icons/png/512x512.png'),
     //titleBarStyle: 'hidden-inset', // macOS only
@@ -24,7 +24,7 @@ const createWindow = () => {
   });
 
   // and load the index.html of the app.
-  mainWindow.loadURL(`file://${__dirname}/index.html`);
+  mainWindow.loadURL(`file://${__dirname}/app/index.html`);
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();

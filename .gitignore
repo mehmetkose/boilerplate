@@ -2,6 +2,11 @@
 desktop/src/app/
 desktop/src/icons/
 mobile/platforms/*/build/
+
+mobile/www/
+mobile/platforms/*/www/
+
+
 .DS_Store
 dist
 build

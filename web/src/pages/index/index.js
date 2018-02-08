@@ -29,7 +29,7 @@ export default class Default extends Component {
             </form>
           </section>
           <section style="text-align:center;margin-top:5%">
-            <img src="/assets/icons/png/512x512.png" style="width: 80%; max-width:512px;"/>
+            <img src="assets/icons/png/512x512.png" style="width: 80%; max-width:512px;"/>
           </section>
         </div>
       </div>

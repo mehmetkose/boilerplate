@@ -5,7 +5,7 @@
 PWD = "/Users/mks/upwork/boilerplate"
 PROJECT = "Boilerplate"
 
-all: build_desktop
+all: build
 
 clean: ;
 	@echo "Cleaning..."; \
@@ -46,17 +46,30 @@ prepare_desktop: build_web;
 	@echo "Preparing for the Desktop App ${PROJECT}..."; \
 	rm -rf ${PWD}/desktop/src/app/; \
 	mkdir -p ${PWD}/desktop/src/app/; \
-  cp ${PWD}/web/build/bundle.*.js ${PWD}/desktop/src/app/bundle.js; \
-	cp ${PWD}/web/build/polyfills.*.js ${PWD}/desktop/src/app/polyfills.js; \
-	cp ${PWD}/web/build/sw.js ${PWD}/desktop/src/app/sw.js; \
-	cp ${PWD}/web/build/style.*.css ${PWD}/desktop/src/app/style.css; \
+	cp -rf ${PWD}/web/build/. ${PWD}/desktop/src/app/.; \
+	node ${PWD}/buildscript.js; \
+  # cp ${PWD}/web/build/bundle.*.js ${PWD}/desktop/src/app/bundle.js; \
+	# cp ${PWD}/web/build/polyfills.*.js ${PWD}/desktop/src/app/polyfills.js; \
+	# cp ${PWD}/web/build/sw.js ${PWD}/desktop/src/app/sw.js; \
+	# cp ${PWD}/web/build/style.*.css ${PWD}/desktop/src/app/style.css; \
 
 build_desktop: prepare_desktop;
 	@echo "Building the Desktop App ${PROJECT}..."; \
+	cp -rf ${PWD}/web/src/assets/icons ${PWD}/desktop/src/app/icons; \
 	cd ${PWD}/desktop; \
-	electron-icon-maker --input=${PWD}/web/src/brand/icon.png --output=${PWD}/desktop/src/app/; \
 	electron-forge make --platform=darwin; \
+	#electron-icon-maker --input=${PWD}/web/src/brand/icon.png --output=${PWD}/desktop/src/app/; \
 	#electron-forge make --platform=win32;
 	#electron-forge make --platform=linux; \
+
+prepare_mobile: build_desktop;
+	@echo "Preparing for the Mobile App ${PROJECT}..."; \
+	cp -rf ${PWD}/desktop/src/app/. ${PWD}/mobile/www/.; \
+
+build_mobile: prepare_mobile;
+	@echo "Building for the Mobile App ${PROJECT}..."; \
+
+build: build_mobile;
+	@echo "Build done."; \
 
 .PHONY: clean
