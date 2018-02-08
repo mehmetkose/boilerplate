@@ -56,6 +56,7 @@ build_desktop: prepare_desktop;
 	cd ${PWD}/desktop; \
 	electron-icon-maker --input=${PWD}/web/src/brand/icon.png --output=${PWD}/desktop/src/app/; \
 	electron-forge make --platform=darwin; \
+	#electron-forge make --platform=win32;
 	#electron-forge make --platform=linux; \
 
 .PHONY: clean
