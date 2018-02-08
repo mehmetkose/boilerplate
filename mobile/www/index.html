@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,6 +5,24 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="./app/style.css" rel="stylesheet">
   </head>
+	<style media="screen">
+		.toolbar-header .title{
+			-webkit-app-region: drag;
+			-ms-overflow-style: scrollbar;
+		}
+		input[type="submit"],
+		input[type="reset"],
+		input[type="button"],
+		input[type="text"],
+		button,
+		textarea {
+			-webkit-app-region: no-drag;
+		}
+
+		h1, h2, h3, h4, h5, h6 {
+				-webkit-user-select: none;
+		}
+	</style>
 	<body>
 		<script src='./app/bundle.js'></script>
 		<script>window.fetch||document.write('<script src="./app/polyfills.js"><\/script>')</script>
