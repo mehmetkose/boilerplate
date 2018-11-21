@@ -2,7 +2,7 @@
 # Boilerplate Project
 #
 
-PWD = "/Users/mks/upwork/boilerplate"
+PWD = $(pwd)
 PROJECT = "Boilerplate"
 
 all: build
