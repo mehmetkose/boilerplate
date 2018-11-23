@@ -1,0 +1,26 @@
+{
+  "name": "cli",
+  "version": "0.1.0",
+  "description": "Boilerplate cli",
+  "main": "index.js",
+  "bin": {
+    "bp": "./lib/index.js"
+  },
+  "scripts": {
+    "build": "rm ./lib/index.js; babel src -d lib; npm link",
+    "start": "npm run build"
+  },
+  "author": "Kemal Türk",
+  "license": "MIT",
+  "dependencies": {
+    "caporal": "^1.1.0",
+    "chalk": "^2.4.1",
+    "clear": "^0.1.0",
+    "commander": "^2.19.0",
+    "figlet": "^1.2.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}
