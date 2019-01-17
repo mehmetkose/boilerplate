@@ -1,8 +1,8 @@
 # boilerplate [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/mehmetkose/boilerplate)
 
-# --- _Under Development_ ---
-
 An experimental project for creating hybrid apps from a PWA project to all platforms like OSX, ios, Ubuntu, Windows, Android.
+
+![Screenshot](https://pbs.twimg.com/media/DVm0fkfW4AAQq3X.jpg:large)
 
 # Install
 
