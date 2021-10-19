@@ -2,22 +2,23 @@
 # Boilerplate Project
 #
 
-PWD = $(pwd)
+PWD = "/Users/mks/upwork/boilerplate"
 PROJECT = "Boilerplate"
 
 all: build
 
 clean: ;
 	@echo "Cleaning..."; \
-	rm -rf web/build/;\
-	rm -rf desktop/out/;\
+	rm -rf web/build/; \
+	rm -rf desktop/out/; \
 
 install: ;
 	@echo "Installing dependencies..."; \
 	npm install -g electron-icon-maker; \
-	npm install -g ios-deploy; \
 	npm install -g electron-compile; \
-	# build for linux
+	#building for ios
+	npm install -g ios-deploy; \
+	# building for linux
 	brew install fakeroot; \
 	brew install dpkg; \
 	brew install rpm; \
@@ -44,21 +45,18 @@ build_web: create_icons;
 
 prepare_desktop: build_web;
 	@echo "Preparing for the Desktop App ${PROJECT}..."; \
-	rm -rf ${PWD}/desktop/src/app/; \
+	#rm -rf ${PWD}/desktop/src/app/; \
 	mkdir -p ${PWD}/desktop/src/app/; \
 	cp -rf ${PWD}/web/build/. ${PWD}/desktop/src/app/.; \
+	rm ${PWD}/desktop/src/app/assets/*.xml; \
+	rm ${PWD}/desktop/src/app/assets/*.txt; \
 	node ${PWD}/buildscript.js; \
-  # cp ${PWD}/web/build/bundle.*.js ${PWD}/desktop/src/app/bundle.js; \
-	# cp ${PWD}/web/build/polyfills.*.js ${PWD}/desktop/src/app/polyfills.js; \
-	# cp ${PWD}/web/build/sw.js ${PWD}/desktop/src/app/sw.js; \
-	# cp ${PWD}/web/build/style.*.css ${PWD}/desktop/src/app/style.css; \
 
 build_desktop: prepare_desktop;
 	@echo "Building the Desktop App ${PROJECT}..."; \
 	cp -rf ${PWD}/web/src/assets/icons ${PWD}/desktop/src/app/icons; \
 	cd ${PWD}/desktop; \
 	electron-forge make --platform=darwin; \
-	#electron-icon-maker --input=${PWD}/web/src/brand/icon.png --output=${PWD}/desktop/src/app/; \
 	#electron-forge make --platform=win32;
 	#electron-forge make --platform=linux; \
 
@@ -68,6 +66,9 @@ prepare_mobile: build_desktop;
 
 build_mobile: prepare_mobile;
 	@echo "Building for the Mobile App ${PROJECT}..."; \
+	cd ${PWD}/mobile/; \
+	cordova-icon-generator --source=${PWD}/web/src/brand/icon.png --output=${PWD}/mobile/res/icon/; \
+	cordova build ios; \
 
 build: build_mobile;
 	@echo "Build done."; \

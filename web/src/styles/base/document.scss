@@ -1,66 +1,16 @@
-
+@import "media.scss";
 
 body {
 	-webkit-font-smoothing: antialiased;
 	font: 400 14px "Helvetica", "Open Sans", sans-serif;
 	color: #999999;
 	margin: 0;
-
 	background-image: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
 }
 
 a {
 	text-decoration: none;
 }
-
-// Small tablets and large smartphones (landscape view)
-$screen-sm-min: 576px;
-
-// Small tablets (portrait view)
-$screen-md-min: 768px;
-
-// Tablets and small desktops
-$screen-lg-min: 992px;
-
-// Large tablets and desktops
-$screen-xl-min: 1200px;
-
-// Small devices
-@mixin sm {
-   @media (min-width: #{$screen-sm-min}) {
-       @content;
-   }
-}
-
-// Medium devices
-@mixin md {
-   @media (min-width: #{$screen-md-min}) {
-       @content;
-   }
-}
-
-// Large devices
-@mixin lg {
-   @media (min-width: #{$screen-lg-min}) {
-       @content;
-   }
-}
-
-// Extra large devices
-@mixin xl {
-   @media (min-width: #{$screen-xl-min}) {
-       @content;
-   }
-}
-
-// Custom devices
-@mixin rwd($screen) {
-   @media (min-width: $screen+'px') {
-       @content;
-   }
-}
-
-
 
 // .btn-big {
 // 	font-size: 0.9em;
@@ -70,38 +20,4 @@ $screen-xl-min: 1200px;
 .drag {
 	-webkit-app-region: drag;
 	-ms-overflow-style: scrollbar;
-}
-
-.index_page {
-	width: 100%;
-	height: 100%;
-	color: white;
-
-
-
-
-	.wrapper {
-		width: 90%;
-		margin: 0 auto;
-	  display: grid;
-		grid-gap: 10px;
-	  color: #444;
-		grid-template-columns: 100%;
-
-		@include md {
-		  grid-template-columns: 40% 60%;
-		}
-
-		section {
-			//border: 1px dotted;
-		  color: #333;
-		  padding: 20px;
-		  font-size: 150%;
-
-			&.action{
-				margin-top: 25%;
-			}
-		}
-	}
-
 }
